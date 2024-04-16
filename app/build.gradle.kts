@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.zwylair.farmmon"
+        applicationId = "org.zwylair.farmmon"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Параметри</string>
+    <string name="moisture_info_label">Дані о зволоженості:</string>
+    <string name="update_button">Оновити</string>
+</resources>
