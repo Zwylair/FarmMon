@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FarmMon</string>
+    <string name="action_settings">Settings</string>
+    <string name="first_fragment_label">FarmMon</string>
+    <string name="moisture_info_label">Moisture info:</string>
+    <string name="nav_host_fragment_description">nav_host_fragment_description</string>
+    <string name="update_button">Update</string>
+</resources>
