@@ -3,4 +3,6 @@
     <string name="action_settings">Параметри</string>
     <string name="moisture_info_label">Дані о зволоженості:</string>
     <string name="update_button">Оновити</string>
+    <string name="serverAddressLabel">Введіть адресу сервера:</string>
+    <string name="InvalidUrlText">Невірна адреса</string>
 </resources>

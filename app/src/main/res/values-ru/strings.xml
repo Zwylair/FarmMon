@@ -3,4 +3,6 @@
     <string name="action_settings">🤨</string>
     <string name="moisture_info_label">🤨</string>
     <string name="update_button">🤨</string>
+    <string name="serverAddressLabel">🤨</string>
+    <string name="InvalidUrlText">🤨</string>
 </resources>

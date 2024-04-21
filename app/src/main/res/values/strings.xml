@@ -5,4 +5,6 @@
     <string name="moisture_info_label">Moisture info:</string>
     <string name="nav_host_fragment_description" translatable="false">nav_host_fragment_description</string>
     <string name="update_button">Update</string>
+    <string name="serverAddressLabel">Enter the server address:</string>
+    <string name="InvalidUrlText">Invalid URL</string>
 </resources>

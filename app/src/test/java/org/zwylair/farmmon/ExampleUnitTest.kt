@@ -1,4 +1,4 @@
-package com.zwylair.farmmon
+package org.zwylair.farmmon
 
 import org.junit.Test
 
