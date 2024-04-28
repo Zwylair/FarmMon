@@ -3,8 +3,15 @@
     <string name="action_settings">Settings</string>
     <string name="first_fragment_label" translatable="false">FarmMon</string>
     <string name="moisture_info_label">Moisture info:</string>
-    <string name="nav_host_fragment_description" translatable="false">nav_host_fragment_description</string>
     <string name="update_button">Update</string>
     <string name="serverAddressLabel">Enter the server address:</string>
     <string name="InvalidUrlText">Invalid URL</string>
+    <string name="moistureLevelDry">Dry soil</string>
+    <string name="moistureLevelHumid">Humid soil</string>
+    <string name="moistureLevelNotInSoil">Water / Not in soil</string>
+    <string name="moistureLevelDisconnected">Sensor is disconnected</string>
+    <string name="unableToConnectToServer">Unable to connect to the server</string>
+    <string name="emptyServerResponse">Server response is empty</string>
+    <string name="moistureInfoMoistureLabel">Moisture value:</string>
+    <string name="moistureInfoStatusLabel">Status:</string>
 </resources>

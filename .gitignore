@@ -69,3 +69,4 @@ options.txt
 /ops.json
 /whitelist.json
 src/generated/resources/.cache/cache
+app/release/

@@ -5,4 +5,12 @@
     <string name="update_button">Оновити</string>
     <string name="serverAddressLabel">Введіть адресу сервера:</string>
     <string name="InvalidUrlText">Невірна адреса</string>
+    <string name="moistureLevelDry">Сухий ґрунт</string>
+    <string name="moistureLevelHumid">Вологий ґрунт</string>
+    <string name="moistureLevelNotInSoil">Вода / Не в ґрунті</string>
+    <string name="moistureLevelDisconnected">Датчик відключений</string>
+    <string name="unableToConnectToServer">Не вдається з\'єднатися з сервером</string>
+    <string name="emptyServerResponse">Відповідь сервера пуста</string>
+    <string name="moistureInfoMoistureLabel">Зволоженість:</string>
+    <string name="moistureInfoStatusLabel">Статус:</string>
 </resources>

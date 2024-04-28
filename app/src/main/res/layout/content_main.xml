@@ -11,14 +11,13 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:contentDescription="@string/nav_host_fragment_description"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/nav_graph" />
 
     <TextView
@@ -31,17 +30,6 @@
         android:textSize="20sp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="@+id/nav_host_fragment_content_main"
-        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment_content_main" />
-
-    <TextView
-        android:id="@+id/moistureValue1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="116dp"
-        android:text="1000"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/moistureField"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment_content_main" />
 
     <Button
@@ -74,8 +62,69 @@
         android:layout_marginTop="48dp"
         android:inputType="text|textUri|textNoSuggestions"
         android:singleLine="true"
-        android:text="192.168.0.108"
+        android:text="192.168.0.109"
         app:layout_constraintStart_toEndOf="@+id/serverAddressLabel"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment_content_main" />
+
+    <TextView
+        android:id="@+id/moistureInfoPreMoistureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="╠═"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/moistureField"
+        app:layout_constraintTop_toBottomOf="@+id/moistureField" />
+
+    <TextView
+        android:id="@+id/moistureInfoMoistureLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="0.1dp"
+        android:layout_marginTop="1dp"
+        android:text="@string/moistureInfoMoistureLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/moistureInfoPreMoistureLabel"
+        app:layout_constraintTop_toTopOf="@+id/moistureInfoPreMoistureLabel" />
+
+    <TextView
+        android:id="@+id/moistureInfoMoistureValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/moistureInfoMoistureLabel"
+        app:layout_constraintTop_toTopOf="@+id/moistureInfoMoistureLabel" />
+
+    <TextView
+        android:id="@+id/moistureInfoPreStatusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="╚═"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/moistureInfoPreMoistureLabel"
+        app:layout_constraintTop_toBottomOf="@+id/moistureInfoPreMoistureLabel" />
+
+    <TextView
+        android:id="@+id/moistureInfoStatusLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="0.1dp"
+        android:text="@string/moistureInfoStatusLabel"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/moistureInfoPreStatusLabel"
+        app:layout_constraintTop_toBottomOf="@+id/moistureInfoPreMoistureLabel" />
+
+    <TextView
+        android:id="@+id/moistureInfoStatusValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/moistureInfoStatusLabel"
+        app:layout_constraintTop_toTopOf="@+id/moistureInfoStatusLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
