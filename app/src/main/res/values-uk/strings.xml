@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_settings">Параметри</string>
     <string name="moisture_info_label">Дані о зволоженості:</string>
     <string name="update_button">Оновити</string>
-    <string name="serverAddressLabel">Введіть адресу сервера:</string>
-    <string name="InvalidUrlText">Невірна адреса</string>
-    <string name="moistureLevelDry">Сухий ґрунт</string>
-    <string name="moistureLevelHumid">Вологий ґрунт</string>
-    <string name="moistureLevelNotInSoil">Вода / Не в ґрунті</string>
-    <string name="moistureLevelDisconnected">Датчик відключений</string>
-    <string name="unableToConnectToServer">Не вдається з\'єднатися з сервером</string>
-    <string name="emptyServerResponse">Відповідь сервера пуста</string>
-    <string name="moistureInfoMoistureLabel">Зволоженість:</string>
-    <string name="moistureInfoStatusLabel">Статус:</string>
+    <string name="server_address_label">Введіть адресу сервера:</string>
+    <string name="invalid_url_text">Невірна адреса</string>
+    <string name="moisture_level_dry">Сухий ґрунт</string>
+    <string name="moisture_level_humid">Вологий ґрунт</string>
+    <string name="moisture_level_not_in_soil">Вода / Не в ґрунті</string>
+    <string name="moisture_level_disconnected">Датчик відключений</string>
+    <string name="unable_to_connect_to_server">Не вдається з\'єднатися з сервером</string>
+    <string name="info_moisture_label">Зволоженість:</string>
+    <string name="info_status_label">Статус:</string>
+    <string name="request_timed_out">Вийшов час відповіді</string>
+    <string name="failed_to_process_data">Не вдалося обробити получені дані</string>
 </resources>

@@ -1,20 +1,22 @@
 package org.zwylair.farmmon
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
+
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
-import org.zwylair.farmmon.databinding.ActivityMainBinding
+import com.google.gson.JsonSyntaxException
+
+import java.net.HttpURLConnection
+import java.net.SocketTimeoutException
+import java.net.URL
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
 import java.util.concurrent.Executors
+
+import org.zwylair.farmmon.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -26,16 +28,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        val updateButton = findViewById<Button>(R.id.updateButton)
-        val serverAddressField = findViewById<TextInputEditText>(R.id.serverAddressInputField)
-
-        updateButton.setOnClickListener {
-            val url = serverAddressField.text.toString()
+        binding.updateButton.setOnClickListener {
+            val url = binding.serverAddressInput.text.toString()
 
             if (checkUrl(url)) {
                 FetchMoistureDataTask(url, this).run()
             } else {
-                Toast.makeText(this, R.string.InvalidUrlText, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.invalid_url_text, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -52,13 +51,13 @@ class MainActivity : AppCompatActivity() {
         private val activity: AppCompatActivity
     ) {
         private val resources = activity.resources
-        private val moistureField = activity.findViewById<TextView>(R.id.moistureInfoMoistureValue)
-        private val statusField = activity.findViewById<TextView>(R.id.moistureInfoStatusValue)
+        private val moistureField = activity.findViewById<TextView>(R.id.moisture_value)
+        private val statusField = activity.findViewById<TextView>(R.id.status_value)
         private val moistureLevelMap = mapOf(
-            "1001-9999" to resources.getString(R.string.moistureLevelDisconnected),
-            "601-1000" to resources.getString(R.string.moistureLevelDry),
-            "371-600" to resources.getString(R.string.moistureLevelHumid),
-            "0-370" to resources.getString(R.string.moistureLevelNotInSoil)
+            "1001-9999" to resources.getString(R.string.moisture_level_disconnected),
+            "601-1000" to resources.getString(R.string.moisture_level_dry),
+            "371-600" to resources.getString(R.string.moisture_level_humid),
+            "0-370" to resources.getString(R.string.moisture_level_not_in_soil)
         )
 
         fun run() {
@@ -69,17 +68,17 @@ class MainActivity : AppCompatActivity() {
 
                 val analogPinValue = data.get("analogPinValue").asInt
 
-                moistureField.post { changeMoistureValue(analogPinValue.toString()) }
-
                 for ((range, hint) in moistureLevelMap) {
                     val (rangeStart, rangeEnd) = range.split("-").map { it.toInt() }
 
                     if (analogPinValue in rangeStart..rangeEnd) {
-                        statusField.post { (changeStatusValue(hint)) }
-                        return@execute
+                        activity.runOnUiThread {
+                            moistureField.text = analogPinValue.toString()
+                            statusField.text = hint
+                        }
+                        break
                     }
                 }
-                statusField.post { changeStatusValue(resources.getString(R.string.moistureLevelDisconnected)) }
             }
         }
 
@@ -100,25 +99,21 @@ class MainActivity : AppCompatActivity() {
                 reader.close()
                 connection.disconnect()
 
-                val data = response.toString()
-                if (data.isEmpty()) {
-                    activity.runOnUiThread {
-                        Toast.makeText(activity, R.string.emptyServerResponse, Toast.LENGTH_SHORT).show()
-                    }
-                    return JsonObject()
+                return try {
+                    JsonParser.parseString(response.toString()).asJsonObject
+                } catch (e: JsonSyntaxException) {
+                    showToast(R.string.failed_to_process_data)
+                    JsonObject()
                 }
-
-                return JsonParser.parseString(data).asJsonObject
-            } catch (e: Exception) {
+            } catch (e: SocketTimeoutException) {
                 e.printStackTrace()
-                activity.runOnUiThread {
-                    Toast.makeText(activity, R.string.unableToConnectToServer, Toast.LENGTH_SHORT).show()
-                }
+                showToast(R.string.request_timed_out)
                 return JsonObject()
             }
         }
 
-        private fun changeMoistureValue(text: String) { moistureField.text = text }
-        private fun changeStatusValue(text: String) { statusField.text = text }
+        private fun showToast(textKey: Int) {
+            activity.runOnUiThread { Toast.makeText(activity, textKey, Toast.LENGTH_SHORT).show() }
+        }
     }
 }

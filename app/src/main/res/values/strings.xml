@@ -1,17 +1,16 @@
 <resources>
     <string name="app_name" translatable="false">FarmMon</string>
-    <string name="action_settings">Settings</string>
-    <string name="first_fragment_label" translatable="false">FarmMon</string>
     <string name="moisture_info_label">Moisture info:</string>
     <string name="update_button">Update</string>
-    <string name="serverAddressLabel">Enter the server address:</string>
-    <string name="InvalidUrlText">Invalid URL</string>
-    <string name="moistureLevelDry">Dry soil</string>
-    <string name="moistureLevelHumid">Humid soil</string>
-    <string name="moistureLevelNotInSoil">Water / Not in soil</string>
-    <string name="moistureLevelDisconnected">Sensor is disconnected</string>
-    <string name="unableToConnectToServer">Unable to connect to the server</string>
-    <string name="emptyServerResponse">Server response is empty</string>
-    <string name="moistureInfoMoistureLabel">Moisture value:</string>
-    <string name="moistureInfoStatusLabel">Status:</string>
+    <string name="server_address_label">Enter the server address:</string>
+    <string name="invalid_url_text">Invalid URL</string>
+    <string name="moisture_level_dry">Dry soil</string>
+    <string name="moisture_level_humid">Humid soil</string>
+    <string name="moisture_level_not_in_soil">Water / Not in soil</string>
+    <string name="moisture_level_disconnected">Sensor is disconnected</string>
+    <string name="unable_to_connect_to_server">Unable to connect to the server</string>
+    <string name="info_moisture_label">Moisture value:</string>
+    <string name="info_status_label">Status:</string>
+    <string name="request_timed_out">Timed out</string>
+    <string name="failed_to_process_data">Failed to process got data</string>
 </resources>
