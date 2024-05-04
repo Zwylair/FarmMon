@@ -11,6 +11,7 @@ import com.google.gson.JsonSyntaxException
 
 import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
+import java.net.ConnectException
 import java.net.URL
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -108,6 +109,10 @@ class MainActivity : AppCompatActivity() {
             } catch (e: SocketTimeoutException) {
                 e.printStackTrace()
                 showToast(R.string.request_timed_out)
+                return JsonObject()
+            } catch (e: ConnectException) {
+                e.printStackTrace()
+                showToast(R.string.unable_to_connect_to_server)
                 return JsonObject()
             }
         }

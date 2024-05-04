@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import random
 import threading
 import time
@@ -15,17 +15,18 @@ def change_current_int():
 
 
 def generate_random_number():
-    print(f'sent: {CURRENT_INT}')
-    yield str(CURRENT_INT)
+    return jsonify({"analogPinValue": CURRENT_INT})
 
 
 @app.route('/')
 def stream_random_number():
-    return app.response_class(generate_random_number(), mimetype='text/plain')
+    response = generate_random_number()
+    response.headers['Connection'] = 'close'
+    return response
 
 
 if __name__ == '__main__':
     change_int_thread = threading.Thread(target=change_current_int)
-    server_thread = threading.Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': 5000})
+    server_thread = threading.Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': 8099})
     change_int_thread.start()
     server_thread.start()
