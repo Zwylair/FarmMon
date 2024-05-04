@@ -128,4 +128,18 @@
         app:layout_constraintStart_toEndOf="@+id/status_label"
         app:layout_constraintTop_toTopOf="@+id/status_label" />
 
+    <TextView
+        android:id="@+id/build_tag"
+        android:layout_width="78dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text="[]"
+        android:textAlignment="center"
+        android:textColor="#59000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
